@@ -31,7 +31,7 @@ services:
   #  - 1433:1433
   backend:
     container_name: ${PROJECT_NAME:-openimis}-api
-    image: hub.docker.com/r/parallelscore/openimis-be
+    image: parallelscore/openimis-be:${BE_TAG}
     restart: always
     command: start
     volumes:
@@ -75,7 +75,7 @@ services:
       #- ./conf/nginx:/conf/
   worker:
     container_name: ${PROJECT_NAME:-openimis}-worker
-    image: ghcr.io/openimis/openimis-be:${BE_TAG:-develop}
+    image: parallelscore/openimis-be:${BE_TAG}
     command: worker
     restart: always
     volumes:
